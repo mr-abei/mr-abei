@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Redis," />
 
 
 
@@ -79,12 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="小北学长的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="安装 redis删除了所有redis文件，准备重装，查看进程号： 1[root@localhost &#x2F;]# ps aux | grep redis kill掉6379进程的redis服务后，再次查看进程号，发现存在: 1root      3884  0.0  0.0 112708   980 pts&#x2F;0    R+   23:55   0:00 grep --color&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VMWare安装Redis">
+<meta property="og:url" content="http://yoursite.com/2020/05/17/VMware%E5%AE%89%E8%A3%85Redis/index.html">
 <meta property="og:site_name" content="小北学长的博客">
+<meta property="og:description" content="安装 redis删除了所有redis文件，准备重装，查看进程号： 1[root@localhost &#x2F;]# ps aux | grep redis kill掉6379进程的redis服务后，再次查看进程号，发现存在: 1root      3884  0.0  0.0 112708   980 pts&#x2F;0    R+   23:55   0:00 grep --color&amp;#x">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-17T08:55:03.000Z">
+<meta property="article:modified_time" content="2020-05-17T08:56:25.216Z">
 <meta property="article:author" content="小北学长">
+<meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary">
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/05/17/VMware安装Redis/"/>
 
 
 
 
 
-  <title>小北学长的博客</title>
+  <title>VMWare安装Redis | 小北学长的博客</title>
   
 
 
@@ -140,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -254,9 +258,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -286,9 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/17/VMware%E5%AE%89%E8%A3%85Redis/" itemprop="url">VMWare安装Redis</a></h1>
+          <h1 class="post-title" itemprop="name headline">VMWare安装Redis</h1>
         
 
         <div class="post-meta">
@@ -360,9 +362,7 @@
       
 
       
-        
-          
-            <h2 id="安装-redis"><a href="#安装-redis" class="headerlink" title="安装 redis"></a>安装 redis</h2><p>删除了所有redis文件，准备重装，查看进程号：</p>
+        <h2 id="安装-redis"><a href="#安装-redis" class="headerlink" title="安装 redis"></a>安装 redis</h2><p>删除了所有redis文件，准备重装，查看进程号：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost &#x2F;]# ps aux | grep redis</span><br></pre></td></tr></table></figure>
 <p>kill掉6379进程的redis服务后，再次查看进程号，发现存在:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root      3884  0.0  0.0 112708   980 pts&#x2F;0    R+   23:55   0:00 grep --color&#x3D;auto redis</span><br></pre></td></tr></table></figure>
@@ -418,8 +418,6 @@
 <p>按网上教程，一直出现以下问题…</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost src]# systemctl status redis</span><br><span class="line">● redis.service - Redis service</span><br><span class="line">   Loaded: loaded (&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;redis.service; enabled; vendor preset: disabled)</span><br><span class="line">  Drop-In: &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;redis.service.d</span><br><span class="line">           └─limit.conf</span><br><span class="line">   Active: failed (Result: exit-code) since Tue 2019-06-11 22:46:06 EDT; 27s ago</span><br><span class="line">  Process: 3844 ExecStop&#x3D;&#x2F;usr&#x2F;local&#x2F;redis&#x2F;src&#x2F;redis-cli -a root_123456 shutdown (code&#x3D;exited, status&#x3D;0&#x2F;SUCCESS)</span><br><span class="line">  Process: 3842 ExecStart&#x3D;&#x2F;usr&#x2F;local&#x2F;redis&#x2F;src&#x2F;redis-server &#x2F;usr&#x2F;local&#x2F;redis&#x2F;src&#x2F;redis.conf (code&#x3D;exited, status&#x3D;0&#x2F;SUCCESS)</span><br><span class="line"> Main PID: 3843 (code&#x3D;exited, status&#x3D;1&#x2F;FAILURE)</span><br><span class="line"></span><br><span class="line">Jun 11 22:46:06 localhost.localdomain systemd[1]: Starting Redis service...</span><br><span class="line">Jun 11 22:46:06 localhost.localdomain systemd[1]: Started Redis service.</span><br><span class="line">Jun 11 22:46:06 localhost.localdomain systemd[1]: redis.service: main process exited, code&#x3D;exited, status&#x3D;1&#x2F;FAILURE</span><br><span class="line">Jun 11 22:46:06 localhost.localdomain redis-cli[3844]: Warning: Using a password with &#39;-a&#39; or &#39;-u&#39; option on the command line interface may not be safe.</span><br><span class="line">Jun 11 22:46:06 localhost.localdomain systemd[1]: Unit redis.service entered failed state.</span><br><span class="line">Jun 11 22:46:06 localhost.localdomain systemd[1]: redis.service failed.</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
     
@@ -434,297 +432,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/MySQL%20-%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="小北学长">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小北学长的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/12/MySQL%20-%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8/" itemprop="url">MySQL - 服务器常用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-12T18:00:48+08:00">
-                2020-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MySQL/" itemprop="url" rel="index">
-                    <span itemprop="name">MySQL</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="查看版本号"><a href="#查看版本号" class="headerlink" title="查看版本号"></a>查看版本号</h5><ul>
-<li>直接在操作系统命令行下执行：MySQL –V</li>
-<li>DOM窗口登录MYSQL，输入<strong>status</strong> 或者 <strong>select version();</strong></li>
-</ul>
-<h5 id="查看MySQL安装位置"><a href="#查看MySQL安装位置" class="headerlink" title="查看MySQL安装位置"></a>查看MySQL安装位置</h5><p>DOM窗口登录mysql，输入：</p>
-<blockquote>
-<p>show variables like “%char%”;</p>
-</blockquote>
-<p>就可以看到了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &quot;%char%&quot;;</span><br><span class="line">+--------------------------+---------------------------------------------------------+</span><br><span class="line">| Variable_name            | Value                                                   |</span><br><span class="line">+--------------------------+---------------------------------------------------------+</span><br><span class="line">| character_set_client     | utf8mb4                                                 |</span><br><span class="line">| character_set_connection | utf8mb4                                                 |</span><br><span class="line">| character_set_database   | utf8mb4                                                 |</span><br><span class="line">| character_set_filesystem | binary                                                  |</span><br><span class="line">| character_set_results    | utf8mb4                                                 |</span><br><span class="line">| character_set_server     | utf8mb4                                                 |</span><br><span class="line">| character_set_system     | utf8                                                    |</span><br><span class="line">| character_sets_dir       | C:\Program Files\MySQL\MySQL Server 5.7\share\charsets\ |</span><br><span class="line">+--------------------------+---------------------------------------------------------+</span><br><span class="line">8 rows in set, 1 warning (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="服务器-连接设置"><a href="#服务器-连接设置" class="headerlink" title="服务器 - 连接设置"></a>服务器 - 连接设置</h4><blockquote>
-<p>服务器的数据库为了安全起见，一般不允许root账户远程登录，并设置不同权限（或只读或可修改）的子账户加以设置安全性高的密码作为远程登录账户.</p>
-</blockquote>
-<h5 id="创建只读权限用户用于远程登录"><a href="#创建只读权限用户用于远程登录" class="headerlink" title="创建只读权限用户用于远程登录"></a>创建只读权限用户用于远程登录</h5><p>主要用到“grant”（授权）</p>
-<blockquote>
-<p>MySQL [mysql]&gt; use mysql;</p>
-</blockquote>
-<ul>
-<li>创建一个admin用户，密码是123456（当然，密码要复杂点，这里只是演示用，所以简单点）:</li>
-</ul>
-<blockquote>
-<p>MySQL [mysql]&gt; create user  admin   IDENTIFIED by ‘123456’;</p>
-</blockquote>
-<ul>
-<li>将数据库名为testdb的select权限给admin用户（admin是用来远程登录的，只给查询条件，不给update，delete等权限，这样不怕被恶意修改数据库）:</li>
-</ul>
-<blockquote>
-<p>MySQL [mysql]&gt; grant select on testdb.*  to admin;</p>
-</blockquote>
-<h5 id="禁止root远程登录"><a href="#禁止root远程登录" class="headerlink" title="禁止root远程登录"></a><del>禁止root远程登录</del></h5><blockquote>
-<p><del>MySQL [mysql]&gt; delete from user where user=”root” and host!=”localhost”;</del></p>
-</blockquote>
-<p>上面都设置好了之后，记得:</p>
-<h5 id="刷新数据库权限"><a href="#刷新数据库权限" class="headerlink" title="刷新数据库权限"></a>刷新数据库权限</h5><blockquote>
-<p>flush privileges;</p>
-</blockquote>
-<p>这一步无论是<strong>改密码</strong>还是<strong>授权用户</strong>都需要。</p>
-<p>这样项目里就可以用root用户连接，拥有所有权限，而平时开发的时候可以用admin用户查看数据库。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">然而，总觉得有点脱落实际项目需求，应该有一个可供远程连接、具有修改增删权限的、密码足够安全的连接账户，</span><br><span class="line">这样便于在开发过程或维护过程能够在开发本地对服务器数据库做相应整改，所以，进行了以下再完善.</span><br></pre></td></tr></table></figure>
-<p>好了，做到这里发现炸了，上面那个划掉的语句没输好，导致把整个root用户误删掉了。现在只有一个刚创建的只读可远程连接账户，然并卵，操作数据表都没得。<br>所以进入下面主题</p>
-<h4 id="误删Mysql中误删管理员root账户的解决之道"><a href="#误删Mysql中误删管理员root账户的解决之道" class="headerlink" title="误删Mysql中误删管理员root账户的解决之道"></a>误删Mysql中误删管理员root账户的解决之道</h4><p>现在已经没办法对数据库进行操作了，所以需要一个有权限的账户对数据库进行操作。</p>
-<p>所以进行以下步骤：</p>
-<h5 id="1-在my-ini里的-mysqld-后面添加："><a href="#1-在my-ini里的-mysqld-后面添加：" class="headerlink" title="1. 在my.ini里的[mysqld]后面添加："></a>1. 在my.ini里的[mysqld]后面添加：</h5><blockquote>
-<p>skip-grant-tables </p>
-</blockquote>
-<p>保存，停止mysql服务器，重启。不用密码按enter键即可登陆。</p>
-<blockquote>
-<p>mysql -uroot -p</p>
-</blockquote>
-<p>回车<br>登录后，</p>
-<blockquote>
-<p>use mysql</p>
-</blockquote>
-<h5 id="2-创建-root-用户并赋权限，并修改root密码"><a href="#2-创建-root-用户并赋权限，并修改root密码" class="headerlink" title="2. 创建 root 用户并赋权限，并修改root密码"></a>2. 创建 root 用户并赋权限，并修改root密码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">insert into user set user&#x3D;&#39;root&#39;,ssl_cipher&#x3D;&#39;&#39;,x509_issuer&#x3D;&#39;&#39;,x509_subject&#x3D;&#39;&#39;;</span><br><span class="line"> </span><br><span class="line">update user set Host&#x3D;&#39;localhost&#39;,select_priv&#x3D;&#39;y&#39;, insert_priv&#x3D;&#39;y&#39;,update_priv&#x3D;&#39;y&#39;, Alter_priv&#x3D;&#39;y&#39;,delete_priv&#x3D;&#39;y&#39;,create_priv&#x3D;&#39;y&#39;,drop_priv&#x3D;&#39;y&#39;,reload_priv&#x3D;&#39;y&#39;,shutdown_priv&#x3D;&#39;y&#39;,Process_priv&#x3D;&#39;y&#39;,file_priv&#x3D;&#39;y&#39;,grant_priv&#x3D;&#39;y&#39;,References_priv&#x3D;&#39;y&#39;,index_priv&#x3D;&#39;y&#39;,create_user_priv&#x3D;&#39;y&#39;,show_db_priv&#x3D;&#39;y&#39;,super_priv&#x3D;&#39;y&#39;,create_tmp_table_priv&#x3D;&#39;y&#39;,Lock_tables_priv&#x3D;&#39;y&#39;,execute_priv&#x3D;&#39;y&#39;,repl_slave_priv&#x3D;&#39;y&#39;,repl_client_priv&#x3D;&#39;y&#39;,create_view_priv&#x3D;&#39;y&#39;,show_view_priv&#x3D;&#39;y&#39;,create_routine_priv&#x3D;&#39;y&#39;,alter_routine_priv&#x3D;&#39;y&#39;,create_user_priv&#x3D;&#39;y&#39; where user&#x3D;&#39;root&#39;;</span><br><span class="line"> </span><br><span class="line">update user set authentication_string&#x3D;password(&#39;root123&#39;) where user&#x3D;&#39;root&#39;;</span><br></pre></td></tr></table></figure>
-<p>执行完上面三步就ojbk啦</p>
-<h5 id="3-刷新权限"><a href="#3-刷新权限" class="headerlink" title="3. 刷新权限"></a>3. 刷新权限</h5><blockquote>
-<p>flush privileges;</p>
-</blockquote>
-<h5 id="4-授权"><a href="#4-授权" class="headerlink" title="4.授权"></a>4.授权</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL ON *.* TO &#39;root&#39;@&#39;localhost&#39;;</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-查看用户权限"><a href="#5-查看用户权限" class="headerlink" title="5.查看用户权限"></a>5.查看用户权限</h5><blockquote>
-<p>select * from mysql.user\G</p>
-</blockquote>
-<p>或者</p>
-<blockquote>
-<p>select user,password,host from user; </p>
-</blockquote>
-<p>5.7版本的话是没有password的，换成了<strong>authentication_string</strong>，替上即可。</p>
-<p>/g 表示竖着排列展示</p>
-<h5 id="6-创建用户"><a href="#6-创建用户" class="headerlink" title="6.创建用户"></a>6.创建用户</h5><h6 id="6-1-添加用户"><a href="#6-1-添加用户" class="headerlink" title="6.1. 添加用户"></a>6.1. 添加用户</h6><p>跟以往版本不同，<em>MySQL5.7 mysql.user表没有password字段，这个字段改成了 <strong>authentication_string</strong>；</em><br>这里我们使用命令进行创建用户：</p>
-<blockquote>
-<p>CREATE USER ‘username’@’host’ IDENTIFIED BY ‘password’;</p>
-</blockquote>
-<p>如创建一个test用户，密码为test123，可以进行远程登录：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user &#39;test&#39;@&#39;%&#39; identified by &#39;test123&#39;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>username - 你将创建的用户名</li>
-<li>host - 指定该用户在哪个主机上可以登陆，此处的”localhost”，是指该用户只能在本地登录，不能在另外一台机器上远程登录，如果想远程登录的话，将”localhost”改为”%”，表示在任何一台电脑上都可以登录;也可以指定某台机器可以远程登录;</li>
-<li>password - 该用户的登陆密码,密码可以为空,如果为空则该用户可以不需要密码登陆服务器。<h6 id="6-2-删除用户"><a href="#6-2-删除用户" class="headerlink" title="6.2. 删除用户"></a>6.2. 删除用户</h6></li>
-</ul>
-<p>如果用户创建错了，肯定要支持删除操作，使用命令：</p>
-<blockquote>
-<p>DROP USER ‘username’@’host’;</p>
-</blockquote>
-<h6 id="6-3-授权"><a href="#6-3-授权" class="headerlink" title="6.3. 授权"></a>6.3. 授权</h6><p>以下按例子说明：</p>
-<p>授权test用户有testDB数据库的某一部分权限：</p>
-<blockquote>
-<p>grant select,update on testDB.* to test@’%’ identified by ‘test123’;</p>
-</blockquote>
-<p>授权test用户有testDB数据库的所有操作权限：</p>
-<blockquote>
-<p>grant all privileges on testDB.* to ‘test’@’%’ identified by ‘test123’;</p>
-</blockquote>
-<p>授权test用户拥有所有数据库的某些权限：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant select,delete,update,create,drop on *.* to &#39;test&#39;@&#39;%&#39;  identified by &#39;test123&#39;;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>privileges - 用户的操作权限,如select,delete,update,create,drop等(详细列表可自行百度)，如果要授予所有的权限可使用all（参考第二种授权方式）;</p>
-</li>
-<li><p>% 表示对所有非本地主机授权，不包括localhost。</p>
-<h6 id="6-4-案例"><a href="#6-4-案例" class="headerlink" title="6.4. 案例"></a>6.4. 案例</h6></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL privileges ON test.* TO usr@&#39;%&#39; IDENTIFIED BY &#39;password&#39; WITH GRANT OPTION;  #设置密码时要三种字符并存</span><br><span class="line"></span><br><span class="line">Query OK, 0 rows affected, 1 warning (0.01 sec)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql&gt; flush privileges; #刷新表权限</span><br><span class="line"></span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[root@instance-ozyu8y37 ~]# mysql -ugeek -p</span><br><span class="line"></span><br><span class="line">Enter password:</span><br><span class="line"></span><br><span class="line">ERROR 1045 (28000): Access denied for user &#39;geek&#39;@&#39;localhost&#39; (using password: YES) #报错是说在geek用户在本地登录需要密码，而我刚刚没设置本地登录，所以进入root设置</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[root@instance-ozyu8y37 ~]# mysql -uroot -p</span><br><span class="line"></span><br><span class="line">Enter password:</span><br><span class="line"></span><br><span class="line">Welcome to the MySQL monitor. Commands end with ; or \g.</span><br><span class="line"></span><br><span class="line">Your MySQL connection id is 1261</span><br><span class="line"></span><br><span class="line">Server version: 5.7.24 MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2018, Oracle and&#x2F;or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and&#x2F;or its</span><br><span class="line"></span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line"></span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql&gt; GRANT ALL privileges ON test.* TO usr@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39; WITH GRANT OPTION;</span><br><span class="line"></span><br><span class="line">Query OK, 0 rows affected, 1 warning (0.00 sec)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line"></span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br></pre></td></tr></table></figure>
-<p>退出，重新用新创建的用户登录就成功了</p>
-<hr>
-<h4 id="Navicat-MySql-错误1045-Access-denied-for-user-‘root’-’localhost’-using-password-YES"><a href="#Navicat-MySql-错误1045-Access-denied-for-user-‘root’-’localhost’-using-password-YES" class="headerlink" title="Navicat(MySql)错误1045 Access denied for user ‘root’@’localhost’ (using password:YES)"></a>Navicat(MySql)错误1045 Access denied for user ‘root’@’localhost’ (using password:YES)</h4><p>放完周末第一天上班，打开电脑听前端小姐姐说网站挂了，远程连接进入服务器（win系统），发现服务器莫名重启了，然后项目都没在运行，这些不是事儿，启动即可。重点是Navicat连接数据库连不上了，命令行窗口是可以的，略显棘手。开始分析原因：</p>
-<h5 id="1-密码错误"><a href="#1-密码错误" class="headerlink" title="1. 密码错误"></a>1. 密码错误</h5><p>命令行能进去，说明密码没错，重输入几次也一样更确定密码没敲错。</p>
-<h5 id="2-端口没开放"><a href="#2-端口没开放" class="headerlink" title="2. 端口没开放"></a>2. 端口没开放</h5><p>去高级安全 windows防火墙–&gt; 入站规则–&gt; 新建规则–&gt; 规则类型–&gt; 端口 –&gt; TCP、特定本地端口 输入3306–&gt; 允许连接 –&gt; …保存。</p>
-<p>排除这个原因，继续分析。</p>
-<h5 id="3-端口错误"><a href="#3-端口错误" class="headerlink" title="3. 端口错误"></a>3. 端口错误</h5><p>首先想到的是端口号是不是被占用了。解决办法：确认Navicat填的端口号和MySQL服务端口号一致</p>
-<h6 id="使用命令进行登录"><a href="#使用命令进行登录" class="headerlink" title="- 使用命令进行登录"></a>- 使用命令进行登录</h6><blockquote>
-<p>mysql -uroot -p</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20181108120838567.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU2MDA1Ng==,size_16,color_FFFFFF,t_70" alt="使用mysql -uroot -p命令进行登录"></p>
-<h6 id="查看mysql使用的端口号"><a href="#查看mysql使用的端口号" class="headerlink" title="- 查看mysql使用的端口号"></a>- 查看mysql使用的端口号</h6><blockquote>
-<p>show global variables like ‘port’;</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20181108121215816.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU2MDA1Ng==,size_16,color_FFFFFF,t_70" alt="查看当前mysql使用的端口号"><br>端口号还是3306没错，继续分析。</p>
-<h5 id="4-权限问题"><a href="#4-权限问题" class="headerlink" title="4. 权限问题"></a>4. 权限问题</h5><p>想到用户权限的问题，是否没有访问权限、或者远程连接权限。<br>命令行登录mysql，use mysql</p>
-<h6 id="查看连接权限"><a href="#查看连接权限" class="headerlink" title="- 查看连接权限"></a>- 查看连接权限</h6><blockquote>
-<p>select user,authentication_string,host from user; </p>
-</blockquote>
-<p>看到root是host是“%”，也就是开放了远程连接。还有开出来的账户也是有权限。</p>
-<p>顺便</p>
-<h6 id="查看MYSQL数据库中所有用户"><a href="#查看MYSQL数据库中所有用户" class="headerlink" title="- 查看MYSQL数据库中所有用户"></a>- 查看MYSQL数据库中所有用户</h6><blockquote>
-<p>mysql&gt; SELECT DISTINCT CONCAT(‘User: ‘’’,user,‘’’@’’’,host,’’’;’) AS query FROM mysql.user;</p>
-</blockquote>
-<h6 id="查看数据库中具体某个用户的权限"><a href="#查看数据库中具体某个用户的权限" class="headerlink" title="- 查看数据库中具体某个用户的权限"></a>- 查看数据库中具体某个用户的权限</h6><blockquote>
-<p>mysql&gt; show grants for ‘用户名‘@’%’;    </p>
-</blockquote>
-<h6 id="查看一下操作权限"><a href="#查看一下操作权限" class="headerlink" title="- 查看一下操作权限"></a>- 查看一下操作权限</h6><blockquote>
-<p> select * from mysql.user where user=’用户名’ \G   </p>
-</blockquote>
-<p>没问题，继续分析。</p>
-<h5 id="5-服务没启动"><a href="#5-服务没启动" class="headerlink" title="5. 服务没启动"></a>5. 服务没启动</h5><p>打开任务管理器，服务是有启动的。<br>引用<a href="https://blog.csdn.net/qq_36735409/article/details/78032144" target="_blank" rel="noopener">博客</a>截图<br><img src="https://img-blog.csdn.net/20170920161018425" alt="任务管理器查看mysql运行情况"><br>不过我的不是这样的，我的是显示着运行中。由于情况其实是一样的，所以援引该截图。<br>为什么说情况一样的呢，因为在看<a href="https://blog.csdn.net/qq_36735409/article/details/78032144" target="_blank" rel="noopener">这篇博客</a>的结论中，发现跟我是一样的前提情况。</p>
-<h6 id="万恶的phpstudy"><a href="#万恶的phpstudy" class="headerlink" title="万恶的phpstudy"></a>万恶的phpstudy</h6><p>有个mysqla在运行，奇奇怪怪，然后发现博主说phpstudy内置了mysql，发现我的也确实如此。<img src="https://img-blog.csdn.net/20170920162120652" alt="phpstudy配置"></p>
-<p>它是自带一个tomcat和一个mysql的。我好久之前安装过一个，后来忘了。就是因为有两个mysql服务，导致我的navicat一直在连pnpstudy的mysql。</p>
-<p>将其关掉之后，在用Navicat连接，发现成功进去了。<br><img src="https://img-blog.csdn.net/20170920162026710" alt="连接成功"></p>
-<p>原因就是这万恶的phpstudy…</p>
-<p>当然，<strong>换个端口号</strong>也不失为一个避免冲突的解决之道。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/12/MySQL%20-%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8/" rel="next" title="MySQL - 服务器常用">
+                <i class="fa fa-chevron-left"></i> MySQL - 服务器常用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </div>
@@ -734,10 +471,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -745,6 +483,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -765,8 +507,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -842,6 +593,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-redis"><span class="nav-number">1.</span> <span class="nav-text">安装 redis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地-VMware-安装-Redis"><span class="nav-number">1.0.1.</span> <span class="nav-text">本地 VMware 安装 Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-安装redis编译的c环境"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">1. 安装redis编译的c环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-下载-Redis-安装包"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">2. 下载 Redis 安装包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-解压安装包"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">3. 解压安装包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-编译安装"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">4. 编译安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-修改配置文件"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">5. 修改配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#开启远程连接："><span class="nav-number">1.0.1.5.1.</span> <span class="nav-text">开启远程连接：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#后端模式启动："><span class="nav-number">1.0.1.5.2.</span> <span class="nav-text">后端模式启动：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#设置密码："><span class="nav-number">1.0.1.5.3.</span> <span class="nav-text">设置密码：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#另外设置："><span class="nav-number">1.0.1.5.4.</span> <span class="nav-text">另外设置：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-开启redis服务"><span class="nav-number">1.0.1.6.</span> <span class="nav-text">6. 开启redis服务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-打开redis"><span class="nav-number">1.0.1.7.</span> <span class="nav-text">7. 打开redis</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-查看启动"><span class="nav-number">1.0.1.8.</span> <span class="nav-text">8. 查看启动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-关闭客户端"><span class="nav-number">1.0.1.9.</span> <span class="nav-text">9. 关闭客户端</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-开机自启"><span class="nav-number">1.0.1.10.</span> <span class="nav-text">10. 开机自启</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -982,6 +749,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

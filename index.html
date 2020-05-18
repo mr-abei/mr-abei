@@ -269,6 +269,230 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/%E7%A0%81%E4%BA%91%20%20Git%20%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小北学长">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小北学长的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E7%A0%81%E4%BA%91%20%20Git%20%E5%91%BD%E4%BB%A4/" itemprop="url">初次使用Git安装及使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-18T14:55:03+08:00">
+                2020-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="初次使用Git安装及使用"><a href="#初次使用Git安装及使用" class="headerlink" title="初次使用Git安装及使用"></a>初次使用Git安装及使用</h3><h4 id="1、安装下载Git"><a href="#1、安装下载Git" class="headerlink" title="1、安装下载Git"></a>1、安装下载Git</h4><blockquote>
+<p>下载Git  （地址：<a href="https://git-scm.com/download/win）" target="_blank" rel="noopener">https://git-scm.com/download/win）</a></p>
+</blockquote>
+<blockquote>
+<p>桌面右键如下：Git GUI Here（客户端） 和GIT Batch Here(终端)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在Git终端依次输入：</span><br><span class="line">1、cd ~&#x2F;.ssh，显示 bash: cd: &#x2F;c&#x2F;Users&#x2F;y&#x2F;.ssh: No such file or directory则表示没有生成过公钥，如果不是则表示生成过公钥，可使用cat ~&#x2F;.ssh&#x2F;id_rsa.pub查看，也可在本地用户目录下的.ssh下查看。</span><br><span class="line">2、生成公钥，命令如下：ssh-keygen。</span><br><span class="line">3、查看公钥，命令如下：cat ~&#x2F;.ssh&#x2F;id_rsa.pub。</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、首次操作码云"><a href="#2、首次操作码云" class="headerlink" title="2、首次操作码云"></a>2、首次操作码云</h4><blockquote>
+<p>登陆码云</p>
+</blockquote>
+<p>通过主页右上角 「个人设置」-&gt;「安全设置」-&gt;「SSH公钥」-&gt;「添加公钥」 ，添加上面第一步生成的 public key 复制添加到当前账户中。</p>
+<blockquote>
+<p>新建仓库 填写信息</p>
+</blockquote>
+<blockquote>
+<p>进入仓库 — 克隆/下载 — 复制HTTPS链接</p>
+</blockquote>
+<blockquote>
+<p>本地找个路径，右键GIT Batch Here ：</p>
+</blockquote>
+<h5 id="在本地终端设置项："><a href="#在本地终端设置项：" class="headerlink" title="在本地终端设置项："></a>在本地终端设置项：</h5><p>第一步：设置Git信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; git config --global user.name &quot;输入自定义用户名称&quot; </span><br><span class="line"></span><br><span class="line">&gt; git config --global user.email &quot;输入你的码云邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+
+<p>第二步，创建项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mkdir hospital</span><br><span class="line"></span><br><span class="line">cd hospital</span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line">touch README.md</span><br><span class="line"></span><br><span class="line">git add README.md</span><br><span class="line"></span><br><span class="line">git commit -m &quot;第一次提交&quot;</span><br><span class="line"></span><br><span class="line">git remote add origin &quot;上面复制的HTTPS链接&quot;&#x2F;&#x2F;远程连接码云</span><br></pre></td></tr></table></figure>
+<p>第三步，提交代码<br>跟git一样的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push origin master&#x2F;&#x2F;需要输入的是码云注册邮箱跟密码</span><br><span class="line"></span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+<p>第四步，提交成功 </p>
+<hr>
+<h4 id="3、一般的提交操作步骤-☆-☆-☆-☆-☆"><a href="#3、一般的提交操作步骤-☆-☆-☆-☆-☆" class="headerlink" title="3、一般的提交操作步骤 ☆ ☆ ☆ ☆ ☆"></a>3、一般的提交操作步骤 ☆ ☆ ☆ ☆ ☆</h4><p>（1）</p>
+<blockquote>
+<p>git add（添加到仓库  git  add  . ：全部提交）</p>
+</blockquote>
+<p>（2）</p>
+<blockquote>
+<p>git commit -m “描述信息”（提交到仓库）</p>
+</blockquote>
+<p>（3）</p>
+<blockquote>
+<p>git pull （拉取最新的项目）</p>
+</blockquote>
+<p>（4）</p>
+<blockquote>
+<p>git push （推送自己的项目）</p>
+</blockquote>
+<h4 id="4、使用分支开发"><a href="#4、使用分支开发" class="headerlink" title="4、使用分支开发"></a>4、使用分支开发</h4><h5 id="I．创建分支"><a href="#I．创建分支" class="headerlink" title="I．创建分支"></a>I．创建分支</h5><ol>
+<li>在码云项目上点击＂两个分支＂，进入创建新分支，例如分支名为：FirstBranch 。 <img src="https://img-blog.csdn.net/20180502152224976?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlbmppdXN1aTgwODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="图片源自百度"> </li>
+</ol>
+<p>在所有分支上可以看到新的分支。</p>
+<p><img src="https://img-blog.csdn.net/20180502152336103?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlbmppdXN1aTgwODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="图片源自百度"></p>
+<ol start="2">
+<li>此时本地是没有新分支的，所以要先在项目目录下git pull把分支拉下来:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push</span><br></pre></td></tr></table></figure></li>
+<li>切换分支：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout FirstBranch &#x2F;&#x2F;FirstBranch是分支名</span><br></pre></td></tr></table></figure>
+<p>查看分支：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+<p>现在在这个分支上开发</p>
+<h5 id="II．提交到分支上"><a href="#II．提交到分支上" class="headerlink" title="II．提交到分支上"></a>II．提交到分支上</h5><p>直接：　</p>
+<blockquote>
+<p>git add .</p>
+</blockquote>
+<blockquote>
+<p>git commit -m ‘描述信息’</p>
+</blockquote>
+<blockquote>
+<p>git push　</p>
+</blockquote>
+<p>此时提交到分支上了．</p>
+<h4 id="5-合并分支到主支master上"><a href="#5-合并分支到主支master上" class="headerlink" title="5. 合并分支到主支master上"></a>5. 合并分支到主支master上</h4><p>（分支开发没有问题时可以提交到主支上）</p>
+<blockquote>
+<p>git checkout master   //切换到主支</p>
+</blockquote>
+<blockquote>
+<p>git merge origin/FirstBranch //合并FirstBranch分支</p>
+</blockquote>
+<blockquote>
+<p>git push //推送</p>
+</blockquote>
+<p>合并的时候，可能会进入一个linux查看文件状态里面，输入:wq 保存即可。</p>
+<p>这样就可以了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/MySQL%20-%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -781,7 +1005,7 @@
               
                 <a href="/archives/%7C%7Carchive">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -792,7 +1016,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -803,7 +1027,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
